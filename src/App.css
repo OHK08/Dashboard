@@ -1,0 +1,21 @@
+div.ad_pics1 {
+  height: 120px;
+}
+
+div.ad_pics2 {
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card1 {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .wallet {
+    display: none;
+  }
+}
