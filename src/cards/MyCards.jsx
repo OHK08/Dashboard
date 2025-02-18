@@ -8,11 +8,7 @@ import Button from '../dashboard/Button'
 import FullButton from './FullButton'
 import TextBox from './TextBox'
 
-export default function MyCards() {
-    const [cardVisible, setCardVisiblity] = useState(true);
-    const cardToggle = () => {
-        setCardVisiblity(seen => !seen)
-    }
+export default function MyCards({cardToggle}) {
 
     return (
         <>

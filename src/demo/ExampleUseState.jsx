@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 
-function Example() 
+function ExampleUseState() 
 {
-    
 const[count,countValue]=useState(0);
-const[cardVisible,setCardVisiblity]=useState(true);
-
 
   const incrementCount = () => {
     countValue(count+1);
@@ -22,4 +19,4 @@ const[cardVisible,setCardVisiblity]=useState(true);
   );
 }
 
-export default Example;
+export default ExampleUseState;
