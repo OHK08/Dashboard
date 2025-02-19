@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ProfilePic from '../navbar/ProfilePic'
 import Returns from '../cards/Returns'
 import CreditCard from '../cards/CreditCard'
 import BoldText from '../assets/BoldText'
 import SmallText from '../assets/SmallText'
-import Button from '../dashboard/Button'
+import MyButton from '../dashboard/MyButton'
 import FullButton from './FullButton'
 import TextBox from './TextBox'
 
@@ -17,14 +17,16 @@ export default function MyCards({cardToggle}) {
                     <BoldText text={"My cards"} style={{ fontSize: '24px' }} />
                 </div>
                 <div className="col-1 col-sm-2 col-md-1 col-lg-2">
-                    <Button img={"src/assets/svg/settingsGrey.svg"} />
+                    <MyButton img={"src/assets/svg/settingsGrey.svg"} />
                 </div>
                 <div className="col-1 col-sm-1 col-md-1 col-lg-2">
-                    <Button onClick={cardToggle} img={"src/assets/svg/leftArrow.svg"} />
+                    <button type="button" className="btn btn-light" onClick={cardToggle}>
+                        <img src="src/assets/svg/leftArrow.svg" />
+                    </button>
                 </div>
             </div>
             <CreditCard />
-            <div className="m-1 p-1 bg-white rounded row">
+            <div className="m-1 p-1 rounded row">
                 <div className="col-12">
                     <SmallText num={"Your Balance"} />
                 </div>
@@ -63,7 +65,7 @@ export default function MyCards({cardToggle}) {
                     <BoldText text={"Quick Transfer"} style={{ fontSize: '20px' }} />
                 </div>
                 <div className="col-2 col-sm-2 col-md-1 col-lg-2">
-                    <Button img={"src/assets/svg/addGrey.svg"} />
+                    <MyButton img={"src/assets/svg/addGrey.svg"} />
                 </div>
             </div>
             <div className="row ms-0 mt-2">
@@ -73,7 +75,7 @@ export default function MyCards({cardToggle}) {
                     </div>
                 ))}
                 <div className="col-2 col-sm-2 col-md-2 col-lg-2">
-                    <Button img={"src/assets/svg/rightArrow.svg"} />
+                    <MyButton img={"src/assets/svg/rightArrow.svg"} />
                 </div>
             </div>
             <div className='m-3'>

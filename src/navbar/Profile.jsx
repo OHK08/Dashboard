@@ -7,7 +7,7 @@ export default function Profile() {
     <>
       <div className="row ">
         <div className="col-md-12 text-center">
-          <img src="src/assets/svg/dashboardImage.svg" width={40}/>
+            <img src="src/assets/svg/dashboardImage.svg" width={40}/>
         </div>
         <div className="col-md-12 p-2 text-center">
           <ProfilePic w={60}/>

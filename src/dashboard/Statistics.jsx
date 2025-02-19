@@ -3,32 +3,44 @@ import Box from './Box'
 import BoldText from '../assets/BoldText'
 import SmallText from '../assets/SmallText'
 import Search from './Search'
-import Button from './Button'
+import MyButton from './MyButton'
 
-export default function Statistics() {
+export default function Statistics({ cardToggle, cardVisiblity }) {
   return (
     <>
       <div className="container-fluid">
         <div className="row mt-2">
-          <div className="col-6 col-sm-6 col-md-6 col-lg-6">
-            <Search/>
+          <div className="col-1 col-sm-1 col-md-1 col-lg-1">
+            <button type="button" className={cardVisiblity ? 'd-none' : 'btn btn-light'} onClick={cardToggle}>
+              <img src="src/assets/svg/rightArrowB.svg" />
+            </button>
           </div>
-          <div className="col-2 col-sm-2 col-md-1 col-lg-1">
-          <Button img={"src/assets/svg/bell.svg"}/>
+          <div className="col-5 col-sm-6 col-md-6 col-lg-6">
+            <Search />
           </div>
-          <div className="col-2 col-sm-2 col-md-1 col-lg-1">
-            <Button img={"src/assets/svg/settingsLine.svg"}/>
+          <div className="col-2 col-sm-1 col-md-1 col-lg-1">
+            <MyButton img={"src/assets/svg/bell.svg"} />
           </div>
-          <div className="col-2 col-sm-2 col-md-1 col-lg-1 d-none d-md-block d-lg-none">
+          <div className="col-2 col-sm-1 col-md-1 col-lg-1">
+            <MyButton img={"src/assets/svg/settingsLine.svg"} />
+          </div>
+          <div className="col-2 col-sm-1 col-md-1 col-lg-1">
+            {cardVisiblity ? (
+              <MyButton img={"src/assets/svg/circleBlack.svg"} />
+            ) : (
+              <MyButton img={"src/assets/svg/circleGray.svg"} />
+            )}
+          </div>
+          <div className="col-2 col-sm-1 col-md-1 col-lg-1 d-none d-md-block d-lg-none">
             {/* Wallet Hamburger */}
-          <button
-            className="btn btn-light"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#walletOffcanvas"
-          >
-            <img src="src/assets/svg/menuB.svg" alt="Wallet" />
-          </button>
+            <button
+              className="btn btn-light"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#walletOffcanvas"
+            >
+              <img src="src/assets/svg/menuB.svg" alt="Wallet" />
+            </button>
           </div>
         </div>
       </div>
@@ -88,7 +100,7 @@ export default function Statistics() {
           </div>
           <div className="col-3 col-sm-3 col-md-4 col-lg-3">
             <img src="src/assets/svg/greenTick.svg" />
-            <BoldText text={"Complete"} style={{ fontSize: '15px'}} /> <br/>
+            <BoldText text={"Complete"} style={{ fontSize: '15px' }} /> <br />
             <SmallText num={"12:34"} />
           </div>
         </div>
