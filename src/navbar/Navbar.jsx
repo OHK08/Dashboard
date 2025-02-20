@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className=" bg-dark p-3 vh-100">
+      <div className="p-3 vh-100">
         <Profile />
         <ul className="nav flex-column mt-4">
           {menuOptions.map(([img, title], index) => (

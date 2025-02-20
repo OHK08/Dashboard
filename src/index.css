@@ -1,3 +1,62 @@
+:root {
+  --background-color: #ffffff;
+  --background-color-card: #f8f9fa;
+  --background-color-navbar: #212529;
+  --text-color-navbar: #ffffff;
+  --text-color: #000000;
+  --box-background: #f8f9fa;
+  --box-border: #dee2e6;
+  --button-border: #2a2a2a;
+  --button-background: #e9ecef;
+  --button-text-color: #000000;
+}
+
+[data-theme="dark"] {
+  --background-color: #121212;
+  --background-color-card: #252525;
+  --background-color-navbar: #121212;
+  --text-color-navbar: #ffffff;
+  --text-color: #ffffff;
+  --box-background: #1e1e1e;
+  --box-border: #343a40;
+  --button-border: #7a7a7a;
+  --button-background: #343a40;
+  --button-text-color: #ffffff;
+}
+
+.balance-container {
+  background-color: var(--background-color);
+  color: var(--button-text-color);
+  border: 1px solid var(--box-border);
+}
+
+#button-box {
+  background-color: var(--button-background);
+  color: var(--button-text-color);
+  border: 1px solid var(--button-border);
+}
+
+#statistics-section {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+#card-section {
+  background-color: var(--background-color-card);
+  color: var(--text-color);
+}
+
+#navbar-section {
+  background-color: var(--background-color-navbar);
+  color: var(--text-color-navbar);
+}
+
+[name="box"] {
+  background-color: var(--box-background);
+  color: var(--text-color);
+  border: 1px solid var(--box-border);
+}
+
 div.ad_pics1 {
   height: 120px;
 }
@@ -31,7 +90,7 @@ body.dark-mode {
   background-color: #212529;
   color: white;
 }
-.dark-mode .card {
+.dark-mode .card1 {
   background-color: #1e1e1e;
   color: white;
 }

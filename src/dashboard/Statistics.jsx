@@ -5,7 +5,7 @@ import SmallText from '../assets/SmallText'
 import Search from './Search'
 import MyButton from './MyButton'
 
-export default function Statistics({ cardToggle, cardVisiblity }) {
+export default function Statistics({ cardToggle, cardVisiblity, isDarkMode, setIsDarkMode }) {
   return (
     <>
       <div className="container-fluid">
@@ -25,11 +25,11 @@ export default function Statistics({ cardToggle, cardVisiblity }) {
             <MyButton img={"src/assets/svg/settingsLine.svg"} />
           </div>
           <div className="col-2 col-sm-1 col-md-1 col-lg-1">
-            {cardVisiblity ? (
-              <MyButton img={"src/assets/svg/circleBlack.svg"} />
-            ) : (
-              <MyButton img={"src/assets/svg/circleGray.svg"} />
-            )}
+            <button type="button" onClick={() => setIsDarkMode(!isDarkMode)} className='btn btn-light border-0'>
+              <img
+                src={isDarkMode ? "src/assets/svg/circleGray.svg" : "src/assets/svg/circleBlack.svg"}
+              />
+            </button>
           </div>
           <div className="col-2 col-sm-1 col-md-1 col-lg-1 d-none d-md-block d-lg-none">
             {/* Wallet Hamburger */}
@@ -49,20 +49,20 @@ export default function Statistics({ cardToggle, cardVisiblity }) {
           <div className="col-sm-3 col-md-3 col-lg-3">
             <div className="row">
               <div className="col-6 col-sm-12 col-md-12 col-lg-12">
-                <Box img={"src/assets/svg/analytics2.svg"} text={"Income"} num1={"$68.657"} num2={".00"} />
+                <Box name="box" img={"src/assets/svg/analytics2.svg"} text={"Income"} num1={"$68.657"} num2={".00"} />
               </div>
               <div className="col-6 col-sm-12 col-md-12 col-lg-12">
-                <Box img={"src/assets/svg/analytics2.svg"} text={"Complete"} num1={"$18.657"} num2={".00"} />
+                <Box name="box" img={"src/assets/svg/analytics2.svg"} text={"Complete"} num1={"$18.657"} num2={".00"} />
               </div>
             </div>
           </div>
           <div className="col-sm-3 col-md-3 col-lg-3">
             <div className="row">
               <div className="col-6 col-sm-12 col-md-12 col-lg-12">
-                <Box img={"src/assets/svg/analytics2.svg"} text={"Payment"} num1={"$10.000"} num2={".00"} />
+                <Box name="box" img={"src/assets/svg/analytics2.svg"} text={"Payment"} num1={"$10.000"} num2={".00"} />
               </div>
               <div className="col-6 col-sm-12 col-md-12 col-lg-12">
-                <Box img={"src/assets/svg/analytics2.svg"} text={"Reviews"} num1={"$6.667"} num2={".00"} />
+                <Box name="box" img={"src/assets/svg/analytics2.svg"} text={"Reviews"} num1={"$6.667"} num2={".00"} />
               </div>
             </div>
           </div>
@@ -75,10 +75,10 @@ export default function Statistics({ cardToggle, cardVisiblity }) {
           <div className="col-sm-3 col-md-3 col-lg-3">
             <div className="row">
               <div className="col-6 col-sm-12 col-md-12 col-lg-12">
-                <Box img={"src/assets/svg/circleBlack.svg"} text={"Total Income"} num1={"$18.667"} num2={".00"} />
+                <Box name="box" img={"src/assets/svg/circleBlack.svg"} text={"Total Income"} num1={"$18.667"} num2={".00"} />
               </div>
               <div className="col-6 col-sm-12 col-md-12 col-lg-12">
-                <Box img={"src/assets/svg/circleGray.svg"} text={"Income"} num1={"$18.667"} num2={".00"} />
+                <Box name="box" img={"src/assets/svg/circleGray.svg"} text={"Income"} num1={"$18.667"} num2={".00"} />
               </div>
             </div>
           </div>

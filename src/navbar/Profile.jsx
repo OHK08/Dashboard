@@ -5,7 +5,7 @@ import User from './User'
 export default function Profile() {
   return (
     <>
-      <div className="row ">
+      <div className="row">
         <div className="col-md-12 text-center">
             <img src="src/assets/svg/dashboardImage.svg" width={40}/>
         </div>
