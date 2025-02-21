@@ -16,16 +16,16 @@ export default function MyCards({ cardToggle }) {
           <BoldText text={"My cards"} style={{ fontSize: '24px' }} />
         </div>
         <div className="col-1 col-sm-2 col-md-1 col-lg-2">
-          <MyButton img={"src/assets/svg/settingsGrey.svg"} />
+          <MyButton img={"src/assets/svg/settingsGrey.svg"} id={"button-box1"}/>
         </div>
         <div className="col-1 col-sm-1 col-md-1 col-lg-2">
-          <button type="button" className="btn btn-light" onClick={cardToggle}>
+          <button type="button" className="btn" onClick={cardToggle} id={"button-box1"}>
             <img src="src/assets/svg/leftArrow.svg" alt="Toggle" />
           </button>
         </div>
       </div>
       <CreditCard />
-      <div className="row m-2 rounded balance-container">
+      <div className="row m-2 rounded">
         <div className="col-12">
           <SmallText num={"Your Balance"} />
         </div>
@@ -56,7 +56,7 @@ export default function MyCards({ cardToggle }) {
           <BoldText text={"Active"} style={{ fontSize: '15px' }} />
         </div>
       </div>
-      <div className="d-grid">
+      <div className="d-grid m-2">
         <FullButton id={"button-box"} />
       </div>
       <div className="row">
@@ -64,7 +64,7 @@ export default function MyCards({ cardToggle }) {
           <BoldText text={"Quick Transfer"} style={{ fontSize: '20px' }} />
         </div>
         <div className="col-2 col-sm-2 col-md-1 col-lg-2">
-          <MyButton img={"src/assets/svg/addGrey.svg"} />
+          <MyButton img={"src/assets/svg/addGrey.svg"} id={"button-box1"}/>
         </div>
       </div>
       <div className="row ms-0 mt-2">
@@ -73,15 +73,15 @@ export default function MyCards({ cardToggle }) {
             <ProfilePic w={40} />
           </div>
         ))}
-        <div className="col-2 col-sm-2 col-md-2 col-lg-2">
-          <MyButton img={"src/assets/svg/rightArrow.svg"} />
+        <div className="col-2 col-sm-2 col-md-2 col-lg-1">
+          <MyButton img={"src/assets/svg/rightArrow.svg"} id={"button-box1"} />
         </div>
       </div>
-      <div className="m-3">
+      <div className="m-2">
         <SmallText num={"Card Number"} />
       </div>
-      <div className="m-3">
-        <TextBox placeholder={"VISA"} />
+      <div className="m-2">
+        <TextBox placeholder={"VISA"} id={"button-box"} />
       </div>
     </div>
   );

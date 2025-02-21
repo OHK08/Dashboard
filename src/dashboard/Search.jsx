@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Search() {
+export default function Search({id}) {
     return (
         <>
-            <div className="input-group">
+            <div className="input-group" id = {id}>
                 <span className="input-group-text bg-light border-0">
                     <img src="src/assets/svg/search.svg" />
                 </span>

@@ -23,41 +23,59 @@ export default function Admin() {
 
   return (
     <>
-      <div className="d-flex justify-content-between w-100 d-lg-none d-md-none">
+      <div
+        className="d-flex justify-content-between w-100 d-lg-none d-md-none"
+        id="statistics-section" >
         {/* Navbar Hamburger */}
         <button
-          className="btn btn-dark m-2"
+          className="btn m-2"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#menuOffcanvas"
+          id="button-box"
         >
-          <img src="src/assets/svg/menu.svg" alt="Menu" />
+          {isDarkMode ? (
+            <img src="src/assets/svg/menu.svg" alt="Menu" />
+          ) : (
+            <img src="src/assets/svg/menuB.svg" alt="Menu" />
+          )}
         </button>
 
         <BoldText text={"DASHBOARD"} style={{ fontSize: '20px', marginTop: '10px' }} />
 
         {/* Wallet Hamburger */}
         <button
-          className="btn btn-dark m-2"
+          className="btn m-2"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#walletOffcanvas"
+          id="button-box"
         >
-          <img src="src/assets/svg/leftArrowW.svg" alt='Wallet' />
+          {isDarkMode ? (
+            <img src="src/assets/svg/leftArrowW.svg" alt="Menu" />
+          ) : (
+            <img src="src/assets/svg/leftArrow.svg" alt="Menu" />
+          )}
         </button>
       </div>
 
-      <div className="offcanvas offcanvas-start bg-dark" id="menuOffcanvas">
-        <button type="button" className="btn-close" data-bs-dismiss="offcanvas"></button>
-        <div className="offcanvas-body">
+      <div className="offcanvas offcanvas-start" id="menuOffcanvas">
+        <div className="offcanvas-body" id="navbar-section">
+          <button type="button" data-bs-dismiss="offcanvas"
+            id="button-box1"
+            className={isDarkMode ? "btn-close btn-close-white" : "btn-close"}
+          ></button>
           <Navbar />
         </div>
       </div>
 
-      <div className="offcanvas offcanvas-end bg-light" id="walletOffcanvas">
-        <button type="button" className="btn-close" data-bs-dismiss="offcanvas"></button>
-        <div className="offcanvas-body">
-          <MyCards cardToggle={cardToggle}/>
+      <div className="offcanvas offcanvas-end " id="walletOffcanvas">
+        <div className="offcanvas-body" id="card-section">
+          <button type="button"
+            className={isDarkMode ? "btn-close btn-close-white" : "btn-close"}
+            id="button-box1"
+            data-bs-dismiss="offcanvas"></button>
+          <MyCards cardToggle={cardToggle} />
         </div>
       </div>
 
@@ -66,10 +84,10 @@ export default function Admin() {
           <Navbar />
         </div>
         <div className={cardVisiblity ? 'd-none col-lg-3 d-lg-block' : 'd-none'} id="card-section">
-          <MyCards cardToggle={cardToggle} isDarkMode={isDarkMode}/>
+          <MyCards cardToggle={cardToggle} isDarkMode={isDarkMode} />
         </div>
         <div className={cardVisiblity ? 'col-12 col-sm-12 col-md-9 col-lg-7' : 'col-12 col-sm-12 col-md-9 col-lg-10'} id="statistics-section">
-          <Statistics cardToggle={cardToggle} cardVisiblity={cardVisiblity} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+          <Statistics cardToggle={cardToggle} cardVisiblity={cardVisiblity} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         </div>
       </div>
     </>

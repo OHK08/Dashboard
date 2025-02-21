@@ -5,7 +5,7 @@ export default function FullButton({id}) {
         <>
             <button
                 type="button"
-                className="m-3 btn"
+                className="btn"
                 style={{ fontSize: 13 }}
                 id={id}
             >
