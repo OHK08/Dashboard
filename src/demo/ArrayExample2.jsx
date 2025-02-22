@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ArrayExample2({ values, deleteElementNum, addElementNum, words, deleteWords, addWords }) {
+export default function ArrayExample2({ values, deleteElementNum, addElementNum, words, deleteWords, addWords, setInputValue }) {
     return (
         <div className='container'>
             <h3>Numbers</h3>
@@ -17,6 +17,11 @@ export default function ArrayExample2({ values, deleteElementNum, addElementNum,
                     {word}
                 </p>
             ))}
+            <input
+                type="text"
+                onChange={(e) => setInputValue(e.target.value)}
+                placeholder="Enter a word"
+            />
             <button onClick={addWords}>Add Word</button>
         </div>
     );
