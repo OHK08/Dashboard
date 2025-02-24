@@ -23,7 +23,7 @@ export default function StudentTable({ filteredStudents, searchStudentDetails, s
                     </tr>
                 </thead>
                 <tbody className="text-center">
-                    {filteredStudents.map((student, index) => (
+                    {/* {filteredStudents.map((student, index) => (
                         <tr key={index} onClick={() => handleRowClick(student)}>
                             <td>{student.firstName} {student.lastName}</td>
                             <td>{student.age}</td>
@@ -34,7 +34,24 @@ export default function StudentTable({ filteredStudents, searchStudentDetails, s
                                 {((student.phyMarks + student.chemMarks + student.mathMarks) / 3).toFixed(2)}%
                             </td>
                         </tr>
-                    ))}
+                    ))} */}
+                     {filteredStudents.map((student, index) => {
+                            const phyMarks = Number(student.phyMarks) || 0;
+                            const chemMarks = Number(student.chemMarks) || 0;
+                            const mathMarks = Number(student.mathMarks) || 0;
+                            const percentage = ((phyMarks + chemMarks + mathMarks) / 3).toFixed(2);
+
+                            return (
+                                <tr key={index} onClick={() => handleRowClick(student)} style={{ cursor: "pointer" }}>
+                                    <td>{student.firstName} {student.lastName}</td>
+                                    <td>{student.age}</td>
+                                    <td>{phyMarks}</td>
+                                    <td>{chemMarks}</td>
+                                    <td>{mathMarks}</td>
+                                    <td>{percentage}%</td>
+                                </tr>
+                            );
+                        })}
                 </tbody>
             </table>
 
