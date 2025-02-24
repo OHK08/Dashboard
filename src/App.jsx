@@ -1,8 +1,11 @@
 import React from 'react';
-import Admin from './Admin';
-import DarkModeToggle from './demo/DarkModeToggle';
-import ArrayExample1 from './demo/ArrayExample1';
+// import Admin from './Admin';
+// import DarkModeToggle from './demo/DarkModeToggle';
+// import ArrayExample1 from './demo/ArrayExample1';
+// import StudentList from './demo/StudentList';
 import StudentData from './studentDetails/StudentData';
+import EmployeeData from './demo/EmployeeData';
+
 
 export default function App() {
   return (
@@ -11,6 +14,10 @@ export default function App() {
       {/* <Admin /> */}
       {/* <DarkModeToggle/> */}
       <StudentData/>
+      {/* <StudentList/> */}
+      {/* <FilterArray/> */}
+
+      <EmployeeData/>
     </>
   );
 }
