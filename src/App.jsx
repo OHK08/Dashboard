@@ -3,8 +3,9 @@ import React from 'react';
 // import DarkModeToggle from './demo/DarkModeToggle';
 // import ArrayExample1 from './demo/ArrayExample1';
 // import StudentList from './demo/StudentList';
+// import StudentData from './studentDetails/StudentData';
+// import EmployeeData from './demo/EmployeeData';
 import StudentData from './studentDetails/StudentData';
-import EmployeeData from './demo/EmployeeData';
 
 
 export default function App() {
@@ -13,11 +14,11 @@ export default function App() {
       {/* <ArrayExample1 /> */}
       {/* <Admin /> */}
       {/* <DarkModeToggle/> */}
-      <StudentData/>
+      {/* <StudentData/> */}
       {/* <StudentList/> */}
       {/* <FilterArray/> */}
-
-      <EmployeeData/>
+      {/* <EmployeeData/> */}
+      <StudentData/>
     </>
   );
 }

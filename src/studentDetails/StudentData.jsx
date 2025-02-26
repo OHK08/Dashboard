@@ -1,60 +1,63 @@
-import React, { useState } from 'react';
-import StudentForm from './StudentForm';
-import StudentTable from './StudentTable';
+import React, { useState } from "react";
+import StudentForm from "./StudentForm";
+import StudentTable from "./StudentTable";
 
-export default function StudentData() {
-    // Array of students
+export default function StudentInformation() {
     const [students, setStudentDetails] = useState([
         { firstName: "Omshree", lastName: "Kenjale", age: 20, phyMarks: 75, chemMarks: 90, mathMarks: 80 },
         { firstName: "Yash", lastName: "Seth", age: 15, phyMarks: 75, chemMarks: 90, mathMarks: 80 },
         { firstName: "Sneha", lastName: "Malhotra", age: 25, phyMarks: 75, chemMarks: 90, mathMarks: 80 },
         { firstName: "Mansi", lastName: "Udawant", age: 19, phyMarks: 75, chemMarks: 90, mathMarks: 80 },
         { firstName: "Prajakta", lastName: "Joshi", age: 18, phyMarks: 75, chemMarks: 90, mathMarks: 80 },
-        { firstName: "Vrushti", lastName: "Thakkar", age: 17, phyMarks: 75, chemMarks: 90, mathMarks: 80 }
     ]);
-
-    // State for form input values
     const [inputValue, setInputValue] = useState({ firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
+    const [editIndex, setEditIndex] = useState(null);
 
-    // Search student
-    const [searchInputValue, setSearchInputValue] = useState("");
-    const searchStudentDetails = (e) => {
-        setSearchInputValue(e.target.value);
+    const handleAddStudent = (e) => {
+        e.preventDefault();
+        setStudentDetails([...students, inputValue]);
+        setInputValue({ firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
     };
 
-    // Filter students based on search input
-    const filteredStudents = students.filter(student => 
-        student.firstName.toLowerCase().includes(searchInputValue.toLowerCase()) ||
-        student.lastName.toLowerCase().includes(searchInputValue.toLowerCase())
-    );
+    const handleUpdateStudent = (e) => {
+        e.preventDefault();
+        if (editIndex !== null) {
+            // students[editIndex] = inputValue;
+            // setStudentDetails(students);
+            const updatedStudents = [...students];
+            updatedStudents[editIndex] = inputValue;
+            setStudentDetails(updatedStudents);
+            setEditIndex(null);
+            setInputValue({ firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
+        }
+    };
 
-    // After clicking on an item in the table, fill the form with student details
-    const handleRowClick = (student) => {
-        setInputValue(student); // ✅ Updates the form fields
+    const handleEdit = (index) => {
+        setInputValue(students[index]);
+        setEditIndex(index);
+    };
+
+    const handleDelete = (index) => {
+        setStudentDetails(students.filter((_, i) => i !== index));
     };
 
     return (
-        <>
-            <div className='container-fluid row'>
-                <h3 className='p-3 text-center fw-bold text-decoration-underline'>STUDENTS DETAILS</h3>
-
-                <div className='col-sm-6 col-md-6 col-lg-6'>
+        <div className="container">
+            <h1 className="text-center">Student Information</h1>
+            <div className="row">
+                <div className="col-sm-6 col-md-6 col-lg-6">
                     <StudentForm 
-                        setStudentDetails={setStudentDetails}
-                        inputValue={inputValue}  
-                        setInputValue={setInputValue}
+                        inputValue={inputValue} 
+                        setInputValue={setInputValue} 
+                        handleAddStudent={handleAddStudent} 
+                        handleUpdateStudent={handleUpdateStudent} 
                     />
                 </div>
-
-                <div className='col-sm-6 col-md-6 col-lg-6'>
-                    <StudentTable
-                        filteredStudents={filteredStudents}
-                        searchInputValue={searchInputValue}
-                        searchStudentDetails={searchStudentDetails}
-                        handleRowClick={handleRowClick}
-                    />
+                <div className="col-sm-6 col-md-6 col-lg-6">
+                    <StudentTable students={students} handleEdit={handleEdit} handleDelete={handleDelete} />
                 </div>
             </div>
-        </>
+        </div>
     );
 }
+

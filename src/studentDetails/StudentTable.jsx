@@ -1,60 +1,51 @@
-import React from 'react'
+import React, { useState } from "react";
 
-export default function StudentTable({ filteredStudents, searchStudentDetails, searchInputValue, handleRowClick }) {
+export default function StudentTable({ students, handleEdit, handleDelete }) {
+    const [searchInputValue, setSearchInputValue] = useState("");
+
+    const filteredStudents = students.filter((student) =>
+        `${student.firstName} ${student.lastName}`.toLowerCase().includes(searchInputValue.toLowerCase())
+    );
+
     return (
-        <>
-            <h4>Student List</h4>
-            <input
-                type="text"
-                placeholder='Search student'
-                value={searchInputValue}
-                onChange={searchStudentDetails}
-                className='form-control mb-2'
+        <div>
+            <input 
+                type="text" placeholder="Search Students" className="form-control mb-3"
+                value={searchInputValue} onChange={(e) => setSearchInputValue(e.target.value)} 
             />
-            <table className="table table-striped table-hover table-bordered bg-light">
-                <thead className="bg-dark text-white text-center">
+            <table className="table table-success table-striped">
+                <thead>
                     <tr>
                         <th>Name</th>
                         <th>Age</th>
-                        <th>Physics Marks</th>
-                        <th>Chemistry Marks</th>
-                        <th>Maths Marks</th>
-                        <th>Percentage</th>
+                        <th>Physics</th>
+                        <th>Chemistry</th>
+                        <th>Math</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody className="text-center">
-                    {/* {filteredStudents.map((student, index) => (
-                        <tr key={index} onClick={() => handleRowClick(student)}>
+                <tbody>
+                    {filteredStudents.map((student, index) => (
+                        <tr key={index}>
                             <td>{student.firstName} {student.lastName}</td>
                             <td>{student.age}</td>
                             <td>{student.phyMarks}</td>
                             <td>{student.chemMarks}</td>
                             <td>{student.mathMarks}</td>
                             <td>
-                                {((student.phyMarks + student.chemMarks + student.mathMarks) / 3).toFixed(2)}%
+                                <button className="btn btn-primary m-2" 
+                                onClick={() => handleEdit(index)}>
+                                    Edit
+                                </button>
+                                <button className="btn btn-danger m-2" 
+                                onClick={() => handleDelete(index)}>
+                                    Delete
+                                </button>
                             </td>
                         </tr>
-                    ))} */}
-                     {filteredStudents.map((student, index) => {
-                            const phyMarks = Number(student.phyMarks) || 0;
-                            const chemMarks = Number(student.chemMarks) || 0;
-                            const mathMarks = Number(student.mathMarks) || 0;
-                            const percentage = ((phyMarks + chemMarks + mathMarks) / 3).toFixed(2);
-
-                            return (
-                                <tr key={index} onClick={() => handleRowClick(student)} style={{ cursor: "pointer" }}>
-                                    <td>{student.firstName} {student.lastName}</td>
-                                    <td>{student.age}</td>
-                                    <td>{phyMarks}</td>
-                                    <td>{chemMarks}</td>
-                                    <td>{mathMarks}</td>
-                                    <td>{percentage}%</td>
-                                </tr>
-                            );
-                        })}
+                    ))}
                 </tbody>
             </table>
-
-        </>
-    )
+        </div>
+    );
 }
