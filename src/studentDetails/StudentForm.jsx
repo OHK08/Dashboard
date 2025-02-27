@@ -1,5 +1,6 @@
 import React from "react";
-
+// import handleAddStudent from "./AddNewStudent";
+// import handleUpdateStudent from "./UpdateStudent";
 export default function StudentForm({ inputValue, setInputValue, handleAddStudent, handleUpdateStudent }) {
     return (
         <form>

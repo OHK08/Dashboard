@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-// import handleDelete from "./DeleteStudent";
+import React, {useState} from 'react'
 
-export default function StudentTable({ students, handleEdit, handleDelete }) {
+export default function StudentList({ students, handleEdit, handleDelete }) {
     const [searchInputValue, setSearchInputValue] = useState("");
 
     const filteredStudents = students.filter((student) =>
@@ -9,10 +8,10 @@ export default function StudentTable({ students, handleEdit, handleDelete }) {
     );
 
     return (
-        <div>
-            <input 
+        <>
+            <input
                 type="text" placeholder="Search Students" className="form-control mb-3"
-                value={searchInputValue} onChange={(e) => setSearchInputValue(e.target.value)} 
+                value={searchInputValue} onChange={(e) => setSearchInputValue(e.target.value)}
             />
             <table className="table table-success table-striped">
                 <thead>
@@ -34,12 +33,12 @@ export default function StudentTable({ students, handleEdit, handleDelete }) {
                             <td>{student.chemMarks}</td>
                             <td>{student.mathMarks}</td>
                             <td>
-                                <button className="btn btn-sm btn-primary" 
-                                onClick={() => handleEdit(index)}>
+                                <button className="btn btn-sm btn-primary"
+                                    onClick={() => handleEdit(index)}>
                                     E
                                 </button>
-                                <button className="btn btn-sm btn-danger" 
-                                onClick={() => handleDelete(index)}>
+                                <button className="btn btn-sm btn-danger"
+                                    onClick={() => handleDelete(index)}>
                                     D
                                 </button>
                             </td>
@@ -47,6 +46,6 @@ export default function StudentTable({ students, handleEdit, handleDelete }) {
                     ))}
                 </tbody>
             </table>
-        </div>
-    );
+        </>
+    )
 }

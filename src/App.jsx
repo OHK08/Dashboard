@@ -5,7 +5,8 @@ import React from 'react';
 // import StudentList from './demo/StudentList';
 // import StudentData from './studentDetails/StudentData';
 // import EmployeeData from './demo/EmployeeData';
-import StudentData from './studentDetails/StudentData';
+// import StudentData from './studentDetails/StudentData';
+import StudentData from './studentInformation/StudentData';
 
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
       {/* <StudentList/> */}
       {/* <FilterArray/> */}
       {/* <EmployeeData/> */}
+      {/* <StudentData/> */}
       <StudentData/>
     </>
   );
