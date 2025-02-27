@@ -10,7 +10,7 @@ export default function StudentList({ students, handleEdit, handleDelete }) {
     return (
         <>
             <input
-                type="text" placeholder="Search Students" className="form-control mb-3"
+                type="text" placeholder="Search Students" className="form-control mb-3 mt-3"
                 value={searchInputValue} onChange={(e) => setSearchInputValue(e.target.value)}
             />
             <table className="table table-success table-striped">
@@ -21,7 +21,8 @@ export default function StudentList({ students, handleEdit, handleDelete }) {
                         <th>Physics</th>
                         <th>Chemistry</th>
                         <th>Math</th>
-                        <th>Actions</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,13 +34,15 @@ export default function StudentList({ students, handleEdit, handleDelete }) {
                             <td>{student.chemMarks}</td>
                             <td>{student.mathMarks}</td>
                             <td>
-                                <button className="btn btn-sm btn-primary"
+                                <button className="btn btn-sm btn-success"
                                     onClick={() => handleEdit(index)}>
-                                    E
+                                    Edit
                                 </button>
+                                </td>
+                                <td>
                                 <button className="btn btn-sm btn-danger"
                                     onClick={() => handleDelete(index)}>
-                                    D
+                                    Delete
                                 </button>
                             </td>
                         </tr>

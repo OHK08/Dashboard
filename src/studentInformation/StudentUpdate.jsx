@@ -23,27 +23,39 @@ export default function StudentUpdate({ inputValueU, setInputValueU, handleUpdat
                                 )} />
                     </div>
                 </div>
-                <input type="number" placeholder="Age"
-                    className="form-control mb-3" value={inputValueU.age}
-                    onChange={(e) => setInputValueU(
-                        { ...inputValueU, age: e.target.value }
-                    )} />
-                <input type="number" placeholder="Physics Marks"
-                    className="form-control mb-3" value={inputValueU.phyMarks}
-                    onChange={(e) => setInputValueU(
-                        { ...inputValueU, phyMarks: e.target.value }
-                    )} />
-                <input type="number" placeholder="Chemistry Marks"
-                    className="form-control mb-3" value={inputValueU.chemMarks}
-                    onChange={(e) => setInputValueU(
-                        { ...inputValueU, chemMarks: e.target.value }
-                    )} />
-                <input type="number" placeholder="Math Marks"
-                    className="form-control mb-3" value={inputValueU.mathMarks}
-                    onChange={(e) => setInputValueU(
-                        { ...inputValueU, mathMarks: e.target.value }
-                    )} />
-                <button className="btn btn-primary m-2" onClick={handleUpdateStudent}>Update Student</button>
+                <div className="row">
+                    <div className="col-sm-4 col-md-4 col-lg-4">
+                        <input type="number" placeholder="Age"
+                            className="form-control mb-3" value={inputValueU.age}
+                            onChange={(e) => setInputValueU(
+                                { ...inputValueU, age: e.target.value }
+                            )} />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-sm-4 col-md-4 col-lg-4">
+                        <input type="number" placeholder="Physics Marks"
+                            className="form-control mb-3" value={inputValueU.phyMarks}
+                            onChange={(e) => setInputValueU(
+                                { ...inputValueU, phyMarks: e.target.value }
+                            )} />
+                    </div>
+                    <div className="col-sm-4 col-md-4 col-lg-4">
+                        <input type="number" placeholder="Chemistry Marks"
+                            className="form-control mb-3" value={inputValueU.chemMarks}
+                            onChange={(e) => setInputValueU(
+                                { ...inputValueU, chemMarks: e.target.value }
+                            )} />
+                    </div>
+                    <div className="col-sm-4 col-md-4 col-lg-4">
+                        <input type="number" placeholder="Math Marks"
+                            className="form-control mb-3" value={inputValueU.mathMarks}
+                            onChange={(e) => setInputValueU(
+                                { ...inputValueU, mathMarks: e.target.value }
+                            )} />
+                    </div>
+                </div>
+                <button className="btn btn-primary btn-sm" onClick={handleUpdateStudent}>Update Student</button>
             </form>
 
         </>
