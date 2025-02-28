@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function StudentUpdate({ inputValueU, setInputValueU, handleUpdateStudent }) {
+export default function StudentUpdate({ inputValueU, setInputValueU, handleUpdateStudent, cancelUpdateStudent }) {
     return (
         <>
 
@@ -56,6 +56,7 @@ export default function StudentUpdate({ inputValueU, setInputValueU, handleUpdat
                     </div>
                 </div>
                 <button className="btn btn-primary btn-sm" onClick={handleUpdateStudent}>Update Student</button>
+                <button className="btn btn-primary btn-sm ms-2" onClick={cancelUpdateStudent}>Cancel</button>
             </form>
 
         </>

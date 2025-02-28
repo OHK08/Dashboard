@@ -10,7 +10,7 @@ export default function StudentList({ students, handleEdit, handleDelete }) {
     return (
         <>
             <input
-                type="text" placeholder="Search Students" className="form-control mb-3 mt-3"
+                type="text" placeholder="Search Students" className="form-control mb-3"
                 value={searchInputValue} onChange={(e) => setSearchInputValue(e.target.value)}
             />
             <table className="table table-success table-striped">

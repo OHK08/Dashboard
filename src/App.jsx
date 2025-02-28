@@ -6,7 +6,8 @@ import React from 'react';
 // import StudentData from './studentDetails/StudentData';
 // import EmployeeData from './demo/EmployeeData';
 // import StudentData from './studentDetails/StudentData';
-import StudentData from './studentInformation/StudentData';
+// import StudentData from './studentInformation/StudentData';
+import Form from './form/Form';
 
 
 export default function App() {
@@ -20,7 +21,8 @@ export default function App() {
       {/* <FilterArray/> */}
       {/* <EmployeeData/> */}
       {/* <StudentData/> */}
-      <StudentData/>
+      {/* <StudentData/> */}
+      <Form/>
     </>
   );
 }

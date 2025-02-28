@@ -14,6 +14,7 @@ export default function StudentData() {
     const [inputValue, setInputValue] = useState({ firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
     const [inputValueU, setInputValueU] = useState({ firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
     const [editIndex, setEditIndex] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
 
     const handleAddStudent = (e) => {
         e.preventDefault();
@@ -29,10 +30,19 @@ export default function StudentData() {
             setStudentDetails(updatedStudents);
             setEditIndex(null);
             setInputValueU({ firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
+            setIsEditing(false);
         }
     };
 
+    const cancelUpdateStudent = (e) => {
+        e.preventDefault();
+        setEditIndex(null);
+        setInputValueU({ firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
+        setIsEditing(false);
+    };
+
     const handleEdit = (index) => {
+        setIsEditing(true);
         setInputValueU(students[index]);
         setEditIndex(index);
     };
@@ -46,19 +56,25 @@ export default function StudentData() {
             <h1 className="text-center">Student Information</h1>
             <div className="row">
                 <div className="col-sm-6 col-md-6 col-lg-6">
-                    <StudentAdd
-                        inputValue={inputValue}
-                        setInputValue={setInputValue}
-                        handleAddStudent={handleAddStudent}
-                    />
-                </div>
-                <div className="col-sm-6 col-md-6 col-lg-6">
-                    <StudentUpdate
+                    {isEditing && 
+                        <p style={{border: "2px solid green"}} className="p-2">
+                            UPDATE STUDENT FORM
+                        </p>
+                    }
+                    { isEditing ? 
+                        (<StudentUpdate
                         inputValueU={inputValueU}
                         setInputValueU={setInputValueU}
-                        handleUpdateStudent={handleUpdateStudent} />
+                        handleUpdateStudent={handleUpdateStudent}
+                        cancelUpdateStudent={cancelUpdateStudent}
+                        />) : (<StudentAdd
+                            inputValue={inputValue}
+                            setInputValue={setInputValue}
+                            handleAddStudent={handleAddStudent}
+                        />)
+                    }
                 </div>
-                <div className="col-sm-12 col-md-12 col-lg-12">
+                <div className="col-sm-6 col-md-6 col-lg-6">
                     <StudentList 
                     students={students} 
                     handleEdit={handleEdit} 
