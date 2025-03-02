@@ -7,8 +7,9 @@ import React from 'react';
 // import EmployeeData from './demo/EmployeeData';
 // import StudentData from './studentDetails/StudentData';
 // import StudentData from './studentInformation/StudentData';
-import Form from './form/Form';
-
+// import Form from './form/Form';
+// import UserMain from './UserInformation/UserMain';
+import FormMain from './form/FormMain';
 
 export default function App() {
   return (
@@ -22,7 +23,9 @@ export default function App() {
       {/* <EmployeeData/> */}
       {/* <StudentData/> */}
       {/* <StudentData/> */}
-      <Form/>
+      {/* <Form/> */}
+      {/* <UserMain/> */}
+      <FormMain/>
     </>
   );
 }

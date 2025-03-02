@@ -1,6 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import DarkModeContext from './DarkModeContext';
 
 export default function ContactForm() {
+
+  const { isDarkMode } = useContext(DarkModeContext);
+  const formstyle = {
+    backgroundColor: isDarkMode ? '#333' : '#ccc',
+    color: isDarkMode ? '#fff' : '#000',
+    padding: '10px',
+  }
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,7 +54,10 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form 
+    style={formstyle}
+    onSubmit={handleSubmit} 
+    className='m-4'>
       <label>
         Name:
         <input
