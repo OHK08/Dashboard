@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function StudentUpdate({ inputValue, handleUpdateStudent, cancelUpdateStudent, handleSubmit, handleChange }) {
     const handleUpdateSubmit = (event) => {
-        handleUpdateStudent(); 
+        handleUpdateStudent();
         handleSubmit(event);
     };
-    
+
     return (
         <>
             <form onSubmit={handleUpdateSubmit}>
@@ -24,6 +24,12 @@ export default function StudentUpdate({ inputValue, handleUpdateStudent, cancelU
                     </div>
                 </div>
                 <div className="row">
+                    <div className="col-sm-4 col-md-4 col-lg-4">
+                        <input type="number" placeholder="Roll no."
+                            className="form-control mb-3" value={inputValue.roll}
+                            name="roll"
+                            onChange={handleChange} />
+                    </div>
                     <div className="col-sm-4 col-md-4 col-lg-4">
                         <input type="number" placeholder="Age"
                             className="form-control mb-3" value={inputValue.age}

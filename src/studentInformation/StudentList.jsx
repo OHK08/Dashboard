@@ -35,14 +35,6 @@ export default function StudentList({ students, handleEdit, handleDelete }) {
         setDisplayedStudents(students);
     };
 
-    useEffect(() => {
-        setDisplayedStudents(students);
-    }, [students]);
-    const handleDeleteWrapper = (index) => {
-        const originalIndex = students.findIndex(student => student === displayedStudents[index]);
-        handleDelete(originalIndex);
-    };
-
     return (
         <>
             <input
@@ -89,6 +81,7 @@ export default function StudentList({ students, handleEdit, handleDelete }) {
             <table className="table table-success table-striped">
                 <thead>
                     <tr>
+                        <th>Roll no.</th>
                         <th>Name</th>
                         <th>Age</th>
                         <th>Physics</th>
@@ -100,8 +93,9 @@ export default function StudentList({ students, handleEdit, handleDelete }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredStudents.map((student, index) => (
-                        <tr key={index}>
+                    {filteredStudents.map((student) => (
+                        <tr key={student.roll}>
+                            <td>{student.roll}</td>
                             <td>{student.firstName} {student.lastName}</td>
                             <td>{student.age}</td>
                             <td>{student.phyMarks}</td>
@@ -110,13 +104,13 @@ export default function StudentList({ students, handleEdit, handleDelete }) {
                             <td>{((student.phyMarks + student.mathMarks + student.chemMarks) / 3).toFixed(2)}</td>
                             <td>
                                 <button className="btn btn-sm btn-success"
-                                    onClick={() => handleEdit(index)}>
+                                    onClick={() => handleEdit(student.roll)}>
                                     Edit
                                 </button>
                             </td>
                             <td>
                                 <button className="btn btn-sm btn-danger"
-                                    onClick={() => handleDeleteWrapper(index)}>Delete</button>
+                                    onClick={() => handleDelete(student.roll)}>Delete</button>
                             </td>
                         </tr>
                     ))}

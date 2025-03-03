@@ -5,19 +5,19 @@ import StudentList from "./StudentList";
 
 export default function StudentData() {
     const [students, setStudentDetails] = useState([
-        { firstName: "Omshree", lastName: "Kenjale", age: 20, phyMarks: 100, chemMarks: 100, mathMarks: 77 },
-        { firstName: "Yash", lastName: "Seth", age: 15, phyMarks: 70, chemMarks: 90, mathMarks: 88 },
-        { firstName: "Sneha", lastName: "Malhotra", age: 25, phyMarks: 5, chemMarks: 0, mathMarks: 10 },
-        { firstName: "Mansi", lastName: "Udawant", age: 19, phyMarks: 11, chemMarks: 70, mathMarks: 40 },
-        { firstName: "Prajakta", lastName: "Joshi", age: 18, phyMarks: 85, chemMarks: 85, mathMarks: 22 },
+        { roll:1, firstName: "Omshree", lastName: "Kenjale", age: 20, phyMarks: 100, chemMarks: 100, mathMarks: 77 },
+        { roll:2, firstName: "Yash", lastName: "Seth", age: 15, phyMarks: 70, chemMarks: 90, mathMarks: 88 },
+        { roll:3, firstName: "Sneha", lastName: "Malhotra", age: 25, phyMarks: 5, chemMarks: 0, mathMarks: 10 },
+        { roll:4, firstName: "Mansi", lastName: "Udawant", age: 19, phyMarks: 11, chemMarks: 70, mathMarks: 40 },
+        { roll:5, firstName: "Prajakta", lastName: "Joshi", age: 18, phyMarks: 85, chemMarks: 85, mathMarks: 22 },
     ]);
-    const [inputValue, setInputValue] = useState({ firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
+    const [inputValue, setInputValue] = useState({ roll: "", firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
     const [editIndex, setEditIndex] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
 
     const handleAddStudent = () => {
         setStudentDetails([...students, inputValue]);
-        setInputValue({ firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
+        setInputValue({ roll: "", firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
     };
 
     const handleUpdateStudent = () => {
@@ -26,14 +26,14 @@ export default function StudentData() {
             updatedStudents[editIndex] = inputValue;
             setStudentDetails(updatedStudents);
             setEditIndex(null);
-            setInputValue({ firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
+            setInputValue({ roll: "", firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
             setIsEditing(false);
         }
     };
 
     const cancelUpdateStudent = () => {
         setEditIndex(null);
-        setInputValue({ firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
+        setInputValue({ roll: "", firstName: "", lastName: "", age: "", phyMarks: "", chemMarks: "", mathMarks: "" });
         setIsEditing(false);
     };
 
