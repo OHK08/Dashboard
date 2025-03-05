@@ -6,10 +6,11 @@ import React from 'react';
 // import StudentData from './studentDetails/StudentData';
 // import EmployeeData from './demo/EmployeeData';
 // import StudentData from './studentDetails/StudentData';
-import StudentData from './studentInformation/StudentData';
+// import StudentData from './studentInformation/StudentData';
 // import Form from './form/Form';
 // import UserMain from './UserInformation/UserMain';
 // import FormMain from './form/FormMain';
+import PlanetList from './planets/PlanetList';
 
 export default function App() {
   return (
@@ -22,10 +23,11 @@ export default function App() {
       {/* <FilterArray/> */}
       {/* <EmployeeData/> */}
       {/* <StudentData/> */}
-      <StudentData/>
+      {/* <StudentData/> */}
       {/* <Form/> */}
       {/* <UserMain/> */}
       {/* <FormMain/> */}
+      <PlanetList/>
     </>
   );
 }
