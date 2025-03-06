@@ -10,7 +10,8 @@ import React from 'react';
 // import Form from './form/Form';
 // import UserMain from './UserInformation/UserMain';
 // import FormMain from './form/FormMain';
-import PlanetList from './planets/PlanetList';
+// import PlanetList from './planets/PlanetList';
+import PlanetData from './planets/PlanetData';
 
 export default function App() {
   return (
@@ -27,7 +28,8 @@ export default function App() {
       {/* <Form/> */}
       {/* <UserMain/> */}
       {/* <FormMain/> */}
-      <PlanetList/>
+      {/* <PlanetList/> */}
+      <PlanetData/>
     </>
   );
 }
