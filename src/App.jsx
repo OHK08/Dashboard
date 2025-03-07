@@ -10,7 +10,6 @@ import React from 'react';
 // import Form from './form/Form';
 // import UserMain from './UserInformation/UserMain';
 // import FormMain from './form/FormMain';
-// import PlanetList from './planets/PlanetList';
 import PlanetData from './planets/PlanetData';
 
 export default function App() {
@@ -28,7 +27,6 @@ export default function App() {
       {/* <Form/> */}
       {/* <UserMain/> */}
       {/* <FormMain/> */}
-      {/* <PlanetList/> */}
       <PlanetData/>
     </>
   );
