@@ -8,6 +8,7 @@ export default function PlanetList({ planets, handleDelete, handleEdit }) {
         <thead>
           <tr>
             <th>ID</th>
+            <th>Index</th>
             <th>Planet Name</th>
             <th>Image</th>
             <th>Speed</th>
@@ -21,6 +22,7 @@ export default function PlanetList({ planets, handleDelete, handleEdit }) {
         <tbody>
           {planets.map((planet, index) => (
             <tr key={planet.id}>
+              <td>{planet.id}</td>
               <td>{index + 1}</td>
               <td>{planet.planetName}</td>
               <td>

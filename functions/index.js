@@ -2,81 +2,135 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const express = require("express");
 const cors = require("cors");
+
 admin.initializeApp();
 const omshree = express();
-omshree.use(cors({origin: true}));
+omshree.use(cors({ origin: true }));
 const db = admin.firestore();
 
-omshree.get("/home", (req, res) => {
-    res.send("Welcome to our simple API!");
+omshree.get("/home", async (req, res) => {
+  try {
+    res.json({
+      message: "Welcome home",
+    });
+  } catch (error) {
+    console.error("Error fetching :", error);
+  }
 });
 
-omshree.delete("/delete/age/:number", (req, res) => {
-    const age = req.params.number;
-    res.send(`You are deleting ${age}`);
+omshree.get("/name/:name", async (req, res) => {
+  try {
+    const { name } = req.params;
+    res.json({
+      message: "Welcome " + name,
+    });
+  } catch (error) {
+    console.error("Error fetching :", error);
+  }
 });
 
-omshree.post("/example", async (req, res) => {
-    try {
-        const {subject} = req.body;
-        res.json(subject);
+omshree.get("/getPlanets", async (req, res) => {
+  try {
+    const snapshot = await db.collection("planets").get();
+    const pl = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    res.json(pl);
+  } catch (error) {
+    console.error("Error getting MCQs:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+omshree.put("/updatePlanets/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateData = req.body;
+
+    const docRef = db.collection("planets").doc(id);
+    const doc = await docRef.get();
+
+    if (!doc.exists) {
+      return res.status(404).json({ error: "planet not found" });
     }
-    catch (error) {
-        console.error("Error getting MCQs by subject: ", error);
-        res.status(500).send("Internal server error");
+
+    await docRef.update(updateData);
+    res.json({ message: "Planet updated successfully" });
+  } catch (error) {
+    console.error("Error getting planet data:", error);
+    res.status(500).json({ error: "Error", details: error.message });
+  }
+});
+
+omshree.post("/addPlanet", async (req, res) => {
+  try {
+    const { planetName, url, size, speed, galaxy, active } = req.body;
+
+    if (!planetName || !url || !size || !speed || !galaxy) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required.",
+      });
     }
+
+    const newPlanet = {
+      planetName,
+      url,
+      size,
+      speed,
+      galaxy,
+      active,
+    };
+
+    const docRef = await db.collection("planets").add(newPlanet);
+
+    res.json({
+      success: true,
+      message: "Planet added successfully.",
+      planetId: docRef.id,
+      planetData: newPlanet,
+    });
+  } catch (error) {
+    console.error("Error adding planet:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+      details: error.message,
+    });
+  }
 });
 
-omshree.put("/update/age/:number", async (req, res) => {
-    try {
-        const {subject} = req.body;
-        const age = req.params.number;
-        res.json(`You are updating ${age} ${subject}`);
-    } catch (error) {
-        console.error("Error getting MCQs by subject: ", error);
-        res.status(500).send("Internal server error");
+omshree.delete("/deletePlanet/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({
+        success: false,
+        message: "Planet ID is required.",
+      });
     }
-});
 
-omshree.use((req, res) => {
-    res.status(404).send("404 not found");
-});
+    const docRef = db.collection("planets").doc(id);
+    const doc = await docRef.get();
+    if (!doc.exists) {
+      return res.status(404).json({
+        success: false,
+        message: "Planet not found.",
+      });
+    }
 
-omshree.post("/api/addStudent", (req, res) => {
-    (async () => {
-        try {
-            const {name, roll, phy, math, chem} = req.body;
-            const total = phy + chem + math;
-            const percentage = total/3;
-            let grade;
-            if (percentage >= 90) {
-                grade = 'A';
-            } else if (percentage >= 80) {
-                grade = 'B';
-            } else if (percentage >= 70) {
-                grade = 'C';
-            } else if (percentage >= 0) {
-                grade = 'D';
-            } else {
-                grade = 'F';
-            }
-            await db.collection("students").doc().set({
-                name, roll, phy, chem, math, total, percentage, grade,
-            });
-            return res.status(200).send({status: "success", msg: "Student data saved"});
-        } catch(error) {
-            console.error(error);
-            res.status(500).send({status: "failure", msg: error.toString() });
-        }
-    })();
-});
+    await docRef.delete();
 
-// omshree.put("/api/updateStudent", (req, res) => {
-//     (async () => {
-//         try {
-//             const {id, name, roll, phy, chem}
-//         }
-//     })
-// })
+    res.json({
+      success: true,
+      message: "Planet deleted successfully.",
+    });
+  } catch (error) {
+    console.error("Error deleting planet:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+      details: error.message,
+    });
+  }
+});
 
 exports.omshree = functions.https.onRequest(omshree);
