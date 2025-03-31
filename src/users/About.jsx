@@ -1,22 +1,17 @@
-import React, { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import EmailContext from './EmailContext';
+import React from 'react';
 import Navbar from './Navbar';
+import { Outlet, Link } from 'react-router-dom';
 
 export default function About() {
-    const { email } = useContext(EmailContext);
-    const navigate = useNavigate();
-    useEffect(() => {
-        if (!email) {
-            navigate('/login');
-        }
-    }, [email, navigate]);
 
     return (
         <>
         <Navbar /> 
             <h2>About</h2>
-            <h3>About: {email} !</h3>
+            <Link to="history">About History</Link>
+            <br/>
+            <Link to="team">About Team</Link>
+            <Outlet/>
         </>
     );
 }
