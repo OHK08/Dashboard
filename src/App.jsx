@@ -133,6 +133,10 @@ import HelloClass from './classcomponents/HelloClass';
 import ToggleMood from './classcomponents/ToggleMood';
 import Timer from './classcomponents/Timer';
 import Counter from './classcomponents/Counter';
+import Header from './classcomponents/Header';
+import Content from './classcomponents/Content';
+import { DarkModeProvider } from './classcomponents/DarkModeContext';
+import ExpensiveCalculationDemo from './ExpensiveCalculationDemo';
 
 export default function App() {
   return (
@@ -149,6 +153,54 @@ export default function App() {
       <br />
       <br />
       <Counter />
+      <br />
+      <br />
+      <DarkModeProvider>
+        <Header />
+        <Content />
+      </DarkModeProvider>
+      <br />
+      <br />
+      <ExpensiveCalculationDemo />
     </>
   );
 }
+
+
+
+// useReducer in reactjs 
+// import { useReducer } from 'react';
+// function reducer(state, action) {
+//   switch (action.type) {
+//     case 'NEXT_PAGE':
+//       return {
+//         count: state.count + 1,
+//         pageName: `Page ${state.count + 1}`
+//       };
+//     case 'PREVIOUS_PAGE':
+//       return {
+//         count: state.count > 1 ? state.count - 1 : 1,
+//         pageName: `Page ${state.count > 1 ? state.count - 1 : 1}`
+//       };
+//     default:
+//       return state;
+//   }
+// }
+// function App() {
+//   const initialState = { count: 1, pageName: 'Page 1' };
+//   const [state, dispatch] = useReducer(reducer, initialState);
+//   return (
+//     <div>
+//       <h1>Page Counter</h1>
+//       <p>Current Page: {state.pageName}</p>
+//       <p>Page Number: {state.count}</p>
+//       <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE' })}>
+//         Previous
+//       </button>
+//       <button onClick={() => dispatch({ type: 'NEXT_PAGE' })}>
+//         Next
+//       </button>
+//     </div>
+//   );
+// }
+// export default App;
