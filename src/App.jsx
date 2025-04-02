@@ -128,21 +128,25 @@
 
 
 
-// import DemoCompo from './classcomponents/DemoCompo';
-// import HelloClass from './classcomponents/HelloClass';
-// import ToggleMood from './classcomponents/ToggleMood';
-// import Timer from './classcomponents/Timer';
-// import Counter from './classcomponents/Counter';
-// import Header from './classcomponents/Header';
-// import Content from './classcomponents/Content';
-// import { DarkModeProvider } from './classcomponents/DarkModeContext';
-// import ExpensiveCalculationDemo from './ExpensiveCalculationDemo';
+import DemoCompo from './classcomponents/DemoCompo';
+import HelloClass from './classcomponents/HelloClass';
+import ToggleMood from './classcomponents/ToggleMood';
+import Timer from './classcomponents/Timer';
+import Counter from './classcomponents/Counter';
+import Header from './classcomponents/Header';
+import Content from './classcomponents/Content';
+import { DarkModeProvider } from './classcomponents/DarkModeContext';
+import ExpensiveCalculationDemo from './ExpensiveCalculationDemo';
 import UserCrud from './UserCrud';
+import ExampleUseMemo from './ExampleUseMemo';
+import Memo_Effect from './Memo_Effect';
+import CombinedHooksDemo from './CombinedHooksDemo';
+import ExampleUseCallback from './ExampleUseCallback';
 
 export default function App() {
   return (
     <>
-      {/* <DemoCompo />
+      <DemoCompo />
       <HelloClass />
       <br />
       <br />
@@ -162,8 +166,24 @@ export default function App() {
       </DarkModeProvider>
       <br />
       <br />
-      <ExpensiveCalculationDemo /> */}
       <UserCrud />
+      <br />
+      <br />
+      <br />
+      <ExpensiveCalculationDemo data={['apple', 'banana', 'cherry', 'orange', 'grapes', 'berry']} />
+      <ExampleUseMemo a={5} b={10} />
+      <br />
+      <br />
+      <br />
+      <Memo_Effect />
+      <br />
+      <br />
+      <br />
+      <CombinedHooksDemo />
+      <br />
+      <br />
+      <br />
+      <ExampleUseCallback />
     </>
   );
 }
