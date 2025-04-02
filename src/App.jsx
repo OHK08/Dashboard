@@ -128,20 +128,21 @@
 
 
 
-import DemoCompo from './classcomponents/DemoCompo';
-import HelloClass from './classcomponents/HelloClass';
-import ToggleMood from './classcomponents/ToggleMood';
-import Timer from './classcomponents/Timer';
-import Counter from './classcomponents/Counter';
-import Header from './classcomponents/Header';
-import Content from './classcomponents/Content';
-import { DarkModeProvider } from './classcomponents/DarkModeContext';
-import ExpensiveCalculationDemo from './ExpensiveCalculationDemo';
+// import DemoCompo from './classcomponents/DemoCompo';
+// import HelloClass from './classcomponents/HelloClass';
+// import ToggleMood from './classcomponents/ToggleMood';
+// import Timer from './classcomponents/Timer';
+// import Counter from './classcomponents/Counter';
+// import Header from './classcomponents/Header';
+// import Content from './classcomponents/Content';
+// import { DarkModeProvider } from './classcomponents/DarkModeContext';
+// import ExpensiveCalculationDemo from './ExpensiveCalculationDemo';
+import UserCrud from './UserCrud';
 
 export default function App() {
   return (
     <>
-      <DemoCompo />
+      {/* <DemoCompo />
       <HelloClass />
       <br />
       <br />
@@ -161,7 +162,8 @@ export default function App() {
       </DarkModeProvider>
       <br />
       <br />
-      <ExpensiveCalculationDemo />
+      <ExpensiveCalculationDemo /> */}
+      <UserCrud />
     </>
   );
 }
